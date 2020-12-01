@@ -1,0 +1,10 @@
+
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/icebox_db
+    driverClassName: com.mysql.cj.jdbc.Driver
+    username: icebox
+    password: 12345678
