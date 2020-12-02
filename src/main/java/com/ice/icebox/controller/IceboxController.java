@@ -1,7 +1,7 @@
 package com.ice.icebox.controller;
 
 import com.ice.icebox.entity.Student;
-import com.ice.icebox.mapper.IceBoxMapper;
+import com.ice.icebox.service.IceboxService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,12 +11,12 @@ import java.util.List;
 public class IceboxController {
 
     @Autowired
-    IceBoxMapper mapper;
+    private IceboxService service;
 
     @RequestMapping("/students")
     public @ResponseBody List<Student> getStudents() {
 
-        return mapper.queryStudent();
+        return service.listAll();
     }
 
     @PostMapping("/new")
@@ -24,7 +24,6 @@ public class IceboxController {
                                            @RequestParam String name,
                                            @RequestParam Integer age) {
 
-        final Student newStudent = Student.builder().id(id).name(name).age(age).build();
-        return mapper.addStudent(newStudent) + " records were increased.";
+        return service.createStudent(id, name, age) + " records were increased.";
     }
 }

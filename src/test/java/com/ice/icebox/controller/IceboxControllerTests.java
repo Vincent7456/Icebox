@@ -1,4 +1,4 @@
-package com.ice.icebox;
+package com.ice.icebox.controller;
 
 import com.ice.icebox.controller.IceboxController;
 import org.junit.jupiter.api.Test;
@@ -6,6 +6,7 @@ import org.mybatis.spring.boot.test.autoconfigure.AutoConfigureMybatis;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
@@ -14,9 +15,10 @@ import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 @WebMvcTest(IceboxController.class)
+@ComponentScan("com.ice.icebox")
 @AutoConfigureMybatis
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.AUTO_CONFIGURED)
-class IceboxApplicationTests {
+class IceboxControllerTests {
 
 	@Autowired
 	private MockMvc mvc;
