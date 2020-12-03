@@ -8,3 +8,7 @@ spring:
     driverClassName: com.mysql.cj.jdbc.Driver
     username: icebox
     password: 12345678
+
+icebox:
+  useIcebox:
+    enabled: true
